@@ -31,13 +31,13 @@
 
                     <div class="form-group">
                         <label class="form-label">Judul</label>
-                        <input type="text" class="form-control" name="judul" value="{{ old('judul') }}" placeholder="judul">
+                        <input type="text" class="form-control" name="judul" value="{{ old('judul') }}" placeholder="Judul">
                     </div>
 
                     <div class="form-group">
                     <label class="form-label">Kategori</label>
                         <select name="id_kategori" class="form-control form-control-lg">
-                        <option value="">-- kategori --</option>
+                        <option value="">-- Kategori --</option>
                             @foreach ($kategoris as $kategoriID => $name)
                             <option value="{{ $kategoriID }}" 
                                 @selected(old('id_kategori')==$kategoriID)>

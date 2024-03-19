@@ -7,18 +7,26 @@
                   <div class="card-body">
                     <h4 class="card-title"><i class="fa-solid fa-table"></i> Book List</h4>
                     @if (session('success'))
-                        <div class="alert alert-success">{{ session('success') }}</div>
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>                
                     @endif
 
                     @if (session('error'))
-                        <div class="alert alert-danger">{{ session('error') }}</div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>                    
                     @endif
+
                     <p>
                         <a class="btn btn-outline-primary mt-2" href="{{ route('add-book') }}"><i class="fa-solid fa-plus"></i> New Book</a>                    </p>
                     <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead>
                         <tr>
+                            <th>No</th>
                             <th>Judul</th>
                             <th>Kategori</th>
                             <th>Tanggal Terbit</th>
@@ -28,7 +36,8 @@
                         </thead>
                         <tbody>
                         @forelse ($ebooks as $ebook)
-                            <tr>
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $ebook->judul }}</td>
                             <td>{{ ($ebook->kategori_name != null) ? $ebook->kategori_name : '' }}</td>
                             <td>{{ $ebook->tanggal_terbit }}</td>
@@ -46,7 +55,7 @@
                                 @csrf
                             </form>
                             </td>
-                            </tr>
+                        </tr>
                         @empty
                             <tr>
                             <td colspan="8">

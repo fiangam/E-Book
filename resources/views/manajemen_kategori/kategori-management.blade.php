@@ -7,11 +7,17 @@
                   <div class="card-body">
                     <h4 class="card-title"><i class="fa-solid fa-table"></i> Book List</h4>
                     @if (session('success'))
-                        <div class="alert alert-success">{{ session('success') }}</div>
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>                    
                     @endif
 
                     @if (session('error'))
-                        <div class="alert alert-danger">{{ session('error') }}</div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>                    
                     @endif
                     <p>
                         <a class="btn btn-outline-primary mt-2" href="{{ route('input-kategori') }}"><i class="fa-solid fa-plus"></i> New Kategori</a>
@@ -20,7 +26,7 @@
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>No</th>
                             <th>Nama Kategori</th>
                             <th>Actions</th>
                         </tr>
@@ -28,7 +34,7 @@
                         <tbody>
                         @forelse ($kategoris as $kategori)
                         <tr>
-                            <td>{{ $kategori->id }}</td>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $kategori->name }}</td>
                             <td>
                             <a href="{{ route('kategoris.edit', ['id' => $kategori->id]) }}" class="btn btn-secondary btn-sm">edit</a>

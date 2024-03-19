@@ -54,7 +54,7 @@ class EbookController extends Controller
         $ebooks = Ebook::findOrFail($id);
 
         if ($ebooks->delete()) {
-            return redirect(route('book-management'))->with('success', 'Deleted!');
+            return redirect(route('book-management'))->with('success', 'Your Record Has Been Deleted!');
         }
 
         return redirect(route('book-management'))->with('error', 'Sorry, unable to delete this!');

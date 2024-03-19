@@ -7,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Purple Admin</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../assets/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
   </head>
   <body>
       <!-- partial:partials/_navbar.html -->
@@ -49,11 +49,8 @@
                 </div>
               </a>
               <div class="dropdown-menu dropdown-menu-end navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="{{ route('profile.show') }}">
                   <i class="mdi mdi-cached me-2 text-primary"></i> Account </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-logout me-2 text-danger"></i> Logout </a>
               </div>
             </li>
             <li class="nav-item d-none d-lg-block full-screen-link">
@@ -62,8 +59,13 @@
               </a>
             </li>
             <li class="nav-item nav-logout d-none d-lg-block">
-              <a class="nav-link" href="#">
-                <i class="mdi mdi-power"></i>
+              <a class="nav-link">
+              <form method="POST" action="{{ route('logout') }}" x-data>
+                @csrf
+                <button class="dropdown-item has-icon text-danger bg-white mt-3" type="submit">
+                    <p><i class="mdi mdi-power"></i></p>
+                </button>
+              </form>
               </a>
             </li>
           </ul>
@@ -78,7 +80,7 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{ route('dashboard') }}">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
@@ -97,12 +99,12 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
                 <span class="menu-title">Tabel Kategori</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi-table-large menu-icon"></i>
+                <i class="mdi mdi-sitemap menu-icon"></i>
               </a>
-              <div class="collapse" id="ui-basic">
+              <div class="collapse" id="general-pages">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="{{ route('kategori-management') }}">List Kategori</a></li>
                   <li class="nav-item"> <a class="nav-link" href="{{ route('input-kategori') }}">Tambah Kategori</a></li>
@@ -156,20 +158,20 @@
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="../assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
-    <script src="assets/vendors/chart.js/Chart.min.js"></script>
-    <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="../assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="../assets/js/jquery.cookie.js" type="text/javascript"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="assets/js/off-canvas.js"></script>
-    <script src="assets/js/hoverable-collapse.js"></script>
-    <script src="assets/js/misc.js"></script>
+    <script src="../assets/js/off-canvas.js"></script>
+    <script src="../assets/js/hoverable-collapse.js"></script>
+    <script src="../assets/js/misc.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="assets/js/dashboard.js"></script>
-    <script src="assets/js/todolist.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+    <script src="../assets/js/todolist.js"></script>
     <!-- End custom js for this page -->
   </body>
 </html>
