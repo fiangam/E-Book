@@ -37,7 +37,7 @@
                     </div>
 
                       <button type="submit" class="btn btn-inverse-success mr-2">Submit</button>
-                      <a href="{{ route('book-management') }}" class="btn btn-inverse-dark">Cancel</a>
+                      <a href="{{ route('kategori-management') }}" class="btn btn-inverse-dark">Cancel</a>
                     </form>
                   </div>
                 </div>

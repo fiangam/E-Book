@@ -38,10 +38,12 @@ Route::middleware([
             return view('user management.user-management');
         })->name('user-management');
 
-        Route::get('book-management', [EbookController::class, 'index'])->name('book-management');
-        Route::get('add-book', [EbookController::class, 'create'])->name('add-book');
-        Route::post('create-manajemen', [EbookController::class, 'book'])->name('create-manajemen');
+        Route::get('ebooks', [EbookController::class, 'index'])->name('ebooks.index');
+        Route::get('ebooks/create', [EbookController::class, 'create'])->name('ebooks.create');
+        Route::post('ebooks', [EbookController::class, 'uploadAndCreateBook'])->name('ebooks.book');
         Route::delete('ebooks/{id}', [EbookController::class, 'destroy'])->name('ebooks.destroy');
+
+        Route::post('/upload/proses', [EbookController::class, 'upload']);
 
         Route::get('kategori-management', [KategoriController::class, 'index'])->name('kategori-management');
         Route::get('input-kategori', [KategoriController::class, 'create'])->name('input-kategori');

@@ -21,7 +21,8 @@
                     @endif
 
                     <p>
-                        <a class="btn btn-outline-primary mt-2" href="{{ route('add-book') }}"><i class="fa-solid fa-plus"></i> New Book</a>                    </p>
+                        <a class="btn btn-outline-primary mt-2" href="{{ route('ebooks.create') }}"><i class="fa-solid fa-plus"></i> New Book</a>                    
+                    </p>
                     <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead>

@@ -7,7 +7,7 @@
                   <div class="card-body">
                     <h1 class="card-title">Tambahkan Buku Baru</h1>
                     <p class="card-description"> Masukkan Value Di Bawah </p>
-                    <form class="forms-sample" method="POST" action="{{ route('create-manajemen') }}" enctype="multipart/form-data">
+                    <form class="forms-sample" method="POST" action="{{ route('ebooks.book') }}" enctype="multipart/form-data">
                     @csrf
                         @if ($errors->any())
                         <div class="alert alert-danger">
@@ -53,10 +53,10 @@
                     </div>
                     <div class="form-group col-md-5">
                         <label class="form-label">File E-Book</label>
-                        <input type="file" class="form-control" name="file_ebook" value="{{ old('file_ebook') }}"  placeholder="File Ebook">
+                        <input type="file" class="form-control" id="file" name="file" value="{{ old('file_ebook') }}"  placeholder="File Ebook">
                     </div>
                       <button type="submit" class="btn btn-inverse-success mr-2">Submit</button>
-                      <a href="{{ route('book-management') }}" class="btn btn-inverse-dark">Cancel</a>
+                      <a href="{{ route('ebooks.index') }}" class="btn btn-inverse-dark">Cancel</a>
                     </form>
                   </div>
                 </div>

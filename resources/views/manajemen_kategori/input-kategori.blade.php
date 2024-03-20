@@ -31,11 +31,11 @@
 
                     <div class="form-group">
                         <label for="name" class="form-label">Nama Kategori</label>
-                        <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="name">
+                        <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Name">
                     </div>
 
                       <button type="submit" class="btn btn-inverse-success mr-2">Submit</button>
-                      <a href="{{ route('book-management') }}" class="btn btn-inverse-dark">Cancel</a>
+                      <a href="{{ route('kategori-management') }}" class="btn btn-inverse-dark">Cancel</a>
                     </form>
                   </div>
                 </div>
