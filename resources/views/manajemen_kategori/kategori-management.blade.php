@@ -20,7 +20,7 @@
                     </div>                    
                     @endif
                     <p>
-                        <a class="btn btn-outline-primary mt-2" href="{{ route('input-kategori') }}"><i class="fa-solid fa-plus"></i> New Kategori</a>
+                        <a class="btn btn-outline-primary mt-2" href="{{ route('kategoris.create') }}"><i class="fa-solid fa-plus"></i> New Kategori</a>
                     </p>
                     <div class="table-responsive">
                     <table class="table table-bordered">

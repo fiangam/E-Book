@@ -31,7 +31,7 @@ class KategoriController extends Controller
 
         Kategori::create($validatedData);
 
-        return redirect(route('kategori-management'))->with('success', 'Kategori Berhasil Ditambahkan!');
+        return redirect(route('kategoris.index'))->with('success', 'Kategori Berhasil Ditambahkan!');
     }
 
     public function edit(string $id): Response
@@ -46,10 +46,10 @@ class KategoriController extends Controller
         $kategoris = Kategori::findOrFail($id);
 
         if ($kategoris->delete()) {
-            return redirect(route('kategori-management'))->with('success', 'Deleted!');
+            return redirect(route('kategoris.index'))->with('success', 'Deleted!');
         }
 
-        return redirect(route('kategori-management'))->with('error', 'Sorry, unable to delete this!');
+        return redirect(route('kategoris.index'))->with('error', 'Sorry, unable to delete this!');
     }
 
 }

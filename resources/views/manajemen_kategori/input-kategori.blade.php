@@ -7,7 +7,7 @@
                   <div class="card-body">
                     <h1 class="card-title">Tambahkan Kategori Baru</h1>
                     <p class="card-description"> Masukkan Value Di Bawah </p>
-                    <form class="forms-sample" method="POST" action="{{ route('create-kategori') }}" enctype="multipart/form-data">
+                    <form class="forms-sample" method="POST" action="{{ route('kategoris.kategori') }}" enctype="multipart/form-data">
                     @csrf
                         @if ($errors->any())
                         <div class="alert alert-danger">
@@ -35,7 +35,7 @@
                     </div>
 
                       <button type="submit" class="btn btn-inverse-success mr-2">Submit</button>
-                      <a href="{{ route('kategori-management') }}" class="btn btn-inverse-dark">Cancel</a>
+                      <a href="{{ route('kategoris.index') }}" class="btn btn-inverse-dark">Cancel</a>
                     </form>
                   </div>
                 </div>

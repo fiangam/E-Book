@@ -106,8 +106,8 @@
               </a>
               <div class="collapse" id="general-pages">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="{{ route('kategori-management') }}">List Kategori</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="{{ route('input-kategori') }}">Tambah Kategori</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ route('kategoris.index') }}">List Kategori</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ route('kategoris.create') }}">Tambah Kategori</a></li>
                 </ul>
               </div>
             </li>

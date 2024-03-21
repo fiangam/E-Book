@@ -33,6 +33,7 @@ class CreateNewUser implements CreatesNewUsers
             'role_id' => 2
         ]);
         $user->assignRole('user');
+        
         return $user;
     }
 }

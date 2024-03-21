@@ -40,14 +40,14 @@ Route::middleware([
 
         Route::get('ebooks', [EbookController::class, 'index'])->name('ebooks.index');
         Route::get('ebooks/create', [EbookController::class, 'create'])->name('ebooks.create');
-        Route::post('ebooks', [EbookController::class, 'uploadAndCreateBook'])->name('ebooks.book');
+        Route::post('ebooks', [EbookController::class, 'store'])->name('ebooks.book');
         Route::delete('ebooks/{id}', [EbookController::class, 'destroy'])->name('ebooks.destroy');
 
         Route::post('/upload/proses', [EbookController::class, 'upload']);
 
-        Route::get('kategori-management', [KategoriController::class, 'index'])->name('kategori-management');
-        Route::get('input-kategori', [KategoriController::class, 'create'])->name('input-kategori');
-        Route::post('create-kategori', [KategoriController::class, 'kategori'])->name('create-kategori');
+        Route::get('kategoris', [KategoriController::class, 'index'])->name('kategoris.index');
+        Route::get('kategoris/create', [KategoriController::class, 'create'])->name('kategoris.create');
+        Route::post('kategoris', [KategoriController::class, 'kategori'])->name('kategoris.kategori');
         Route::get('kategoris/{id}/edit', [KategoriController::class, 'edit'])->name('kategoris.edit');
         Route::put('kategoris/{id}', [KategoriController::class, 'update'])->name('kategoris.update');
         Route::delete('kategoris/{id}', [KategoriController::class, 'destroy'])->name('kategoris.destroy');
