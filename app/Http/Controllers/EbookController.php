@@ -8,6 +8,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+use Illuminate\Support\Facades\Validator;
+
 use App\Models\Ebook;
 use App\Models\Kategori;
 
@@ -38,19 +40,38 @@ class EbookController extends Controller
         return response(view('manajemen_buku.add-book', ['kategoris' => $kategoris]));
     }
 
-    public function store(BookEbookRequests $request): RedirectResponse
+    public function store(Request $request): RedirectResponse
         {
-                $params = $request->validated();
-                if ($ebooks = Ebook::create($params)) {
+            $validator = Validator::make($request->all(), [
+                'file' => 'required|file|mimes:pdf,epub',
+                // Sesuaikan validasi buku di sini sesuai kebutuhan
+                'judul' => 'required|string|max:255',
+                'tanggal_terbit' => 'required|date',
+                'id_kategori' => 'required|exists:kategoris,id',
+            ]);
         
-                    return redirect(route('ebooks.index'))->with('success', 'Added!');
-                
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
+        
+            $file = $request->file('file');
+            $tujuan_upload = 'uploads';
+            $file->move($tujuan_upload, $file->getClientOriginalName());
+        
+            $ebooks = [
+                'judul' => $request->input('judul'),
+                'tanggal_terbit' => $request->input('tanggal_terbit'),
+                'id_kategori' => $request->input('id_kategori'),
+                'file_ebook' => $file->getClientOriginalName(),
+            ];
+        
+            if (Ebook::create($ebooks)) {
+                return redirect(route('ebooks.index'))->with('success', 'Ebook uploaded and created successfully!');
+            } else {
+                return redirect()->back()->with('error', 'Failed to upload and create ebook.');
             }
         }
     
-    
-
-
     public function destroy(string $id): RedirectResponse
     {
         $ebook = Ebook::findOrFail($id);

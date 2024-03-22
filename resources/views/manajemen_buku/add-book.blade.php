@@ -53,7 +53,7 @@
                     </div>
                     <div class="form-group col-md-5">
                         <label class="form-label">File E-Book</label>
-                        <input type="file" class="form-control" id="file_ebook" name="file_ebook" value="{{ old('file_ebook') }}"  placeholder="File Ebook">
+                        <input type="file" class="form-control" id="file" name="file" value="{{ old('file_ebook') }}"  placeholder="File Ebook">
                     </div>
                       <button type="submit" class="btn btn-inverse-success mr-2">Submit</button>
                       <a href="{{ route('ebooks.index') }}" class="btn btn-inverse-dark">Cancel</a>

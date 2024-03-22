@@ -30,8 +30,8 @@
                             <th>No</th>
                             <th>Judul</th>
                             <th>Kategori</th>
-                            <th>Tanggal Terbit</th>
                             <th>File E-Book</th>
+                            <th>Tanggal Terbit</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -41,8 +41,8 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $ebook->judul }}</td>
                             <td>{{ ($ebook->kategori_name != null) ? $ebook->kategori_name : '' }}</td>
+                            <td><a class="nav-link link-dark" href="{{ asset('uploads/' .  $ebook->file_ebook) }}">{{ $ebook->file_ebook }}</a></td>
                             <td>{{ $ebook->tanggal_terbit }}</td>
-                            <td>{{ $ebook->file_ebook }}</td>
                             <td>
                             <a href="#" class="btn btn-sm btn-inverse-danger" onclick="
                                     event.preventDefault();
