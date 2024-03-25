@@ -1,8 +1,18 @@
 @extends('layouts.master')
 
 @section('konten')
-
-<div class="col-lg-12 grid-margin stretch-card">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title"> Tambah Kategori </h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Tabel Kategori</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Tambah Kategori</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title"><i class="fa-solid fa-table"></i> Book List</h4>
@@ -64,5 +74,7 @@
                   </div>
                 </div>
               </div>
+            </div>
+        </div>
 
 @endsection

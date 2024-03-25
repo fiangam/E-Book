@@ -1,8 +1,18 @@
 @extends('layouts.master')
 
 @section('konten')
-
-<div class="col-lg-12 grid-margin stretch-card">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title"> List Buku </h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Tabel Buku</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">List Buku</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title"><i class="fa-solid fa-table"></i> Book List</h4>
@@ -41,7 +51,9 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $ebook->judul }}</td>
                             <td>{{ ($ebook->kategori_name != null) ? $ebook->kategori_name : '' }}</td>
-                            <td><a class="nav-link link-dark" href="{{ asset('uploads/' .  $ebook->file_ebook) }}">{{ $ebook->file_ebook }}</a></td>
+                            <td>
+                                <a class="nav-link link-dark" href="{{ route('pdf-view', $ebook->id) }}" title="Buka file PDF"><i class="fa fa-file-pdf-o"></i> {{ $ebook->file_ebook }}</a>
+                            </td>
                             <td>{{ $ebook->tanggal_terbit }}</td>
                             <td>
                             <a href="#" class="btn btn-sm btn-inverse-danger" onclick="
@@ -70,5 +82,6 @@
                   </div>
                 </div>
               </div>
-
+            </div>
+        </div>
 @endsection

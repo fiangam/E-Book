@@ -20,6 +20,7 @@
     <link rel="shortcut icon" href="../assets/images/favicon.ico" />
   </head>
   <body>
+    <div class="container-scroller">
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -86,12 +87,12 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <a class="nav-link" data-bs-toggle="collapse" href="#tabel-buku" aria-expanded="false" aria-controls="tabel-buku">
                 <span class="menu-title">Tabel Buku</span>
                 <i class="menu-arrow"></i>
                 <i class="mdi mdi-table-large menu-icon"></i>
               </a>
-              <div class="collapse" id="ui-basic">
+              <div class="collapse" id="tabel-buku">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="{{ route('ebooks.index') }}">List Buku</a></li>
                   <li class="nav-item"> <a class="nav-link" href="{{ route('ebooks.create') }}">Tambah Buku</a></li>
@@ -99,12 +100,12 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
+              <a class="nav-link" data-bs-toggle="collapse" href="#menu-kategori" aria-expanded="false" aria-controls="menu-kategori">
                 <span class="menu-title">Tabel Kategori</span>
                 <i class="menu-arrow"></i>
                 <i class="mdi mdi-sitemap menu-icon"></i>
               </a>
-              <div class="collapse" id="general-pages">
+              <div class="collapse" id="menu-kategori">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="{{ route('kategoris.index') }}">List Kategori</a></li>
                   <li class="nav-item"> <a class="nav-link" href="{{ route('kategoris.create') }}">Tambah Kategori</a></li>
@@ -125,25 +126,12 @@
             </li>
           </ul>
         </nav>
+        
         <!-- partial -->
         <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="page-header">
-              <h3 class="page-title">
-                <a class="nav-link text-dark" href="{{ route('dashboard') }}">
-                <span class="page-title-icon bg-gradient-primary text-white me-2">
-                  <i class="mdi mdi-home"></i>
-                </span> Dashboard
-                </a>
-              </h3>
-            </div>
-            <div class="row">
-              @yield('konten')
-            </div>
-          </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <footer class="footer">
+        @yield('konten')
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
             <div class="container-fluid d-flex justify-content-between">
               <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © bootstrapdash.com 2021</span>
               <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin template</a> from Bootstrapdash.com</span>

@@ -38,12 +38,14 @@ Route::middleware([
             return view('user management.user-management');
         })->name('user-management');
 
+        
+
+
         Route::get('ebooks', [EbookController::class, 'index'])->name('ebooks.index');
         Route::get('ebooks/create', [EbookController::class, 'create'])->name('ebooks.create');
         Route::post('ebooks', [EbookController::class, 'store'])->name('ebooks.book');
         Route::delete('ebooks/{id}', [EbookController::class, 'destroy'])->name('ebooks.destroy');
-
-        Route::post('/upload/proses', [EbookController::class, 'upload']);
+        Route::get('pdf-view/{id}', [EbookController::class, 'view'])->name('pdf-view');
 
         Route::get('kategoris', [KategoriController::class, 'index'])->name('kategoris.index');
         Route::get('kategoris/create', [KategoriController::class, 'create'])->name('kategoris.create');

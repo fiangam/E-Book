@@ -71,6 +71,21 @@ class EbookController extends Controller
                 return redirect()->back()->with('error', 'Failed to upload and create ebook.');
             }
         }
+
+
+        public function __construct(Ebook $ebook)
+        {
+            $this->ebook = $ebook;
+        }
+
+        public function view($id)
+        {
+            $ebook = $this->ebook->find($id);
+
+            // Tangani potensi kesalahan (misalnya, jika ebook tidak ditemukan)
+
+            return view('manajemen_buku.pdf-view', compact('ebook'));
+        }
     
     public function destroy(string $id): RedirectResponse
     {
