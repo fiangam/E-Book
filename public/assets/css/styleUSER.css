@@ -1,0 +1,124 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body styles */
+  body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: #333;
+    background-color: #fff;
+  }
+  
+  /* Header styles */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 40px 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  
+  header p {
+    font-size: 1.2em;
+  }
+  
+  /* Main styles */
+  main {
+    padding: 20px 40px;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  .card-img-top {
+    height: 200px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+  }
+  
+  .card-text {
+    font-size: 16px;
+  }
+
+  /* Featured books styles */
+  .featured-books {
+    margin-bottom: 20px;
+  }
+  
+  .featured-books h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  
+  .featured-books ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .featured-books li {
+    margin: 10px;
+    width: calc(25% - 20px); /* Adjust for number of items per row */
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+  }
+  
+  .featured-books li:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .featured-books a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .featured-books img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .featured-books h3 {
+    font-size: 1em;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  
+  .featured-books p {
+    font-size: 0.8em;
+    margin-bottom: 5px;
+  }
+  
+  /* More books styles */
+  .more-books {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .more-books li {
+    width: calc(33% - 20px); /* Adjust for number of items per row */
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+  }
+  
+  .more-books li:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2
+  

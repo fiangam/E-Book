@@ -17,7 +17,7 @@ use App\Models\Kategori;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard_user');
 });
 
 // Route::get('ebooks', [EbookController::class, 'index'])->name('manajemen buku.book-management');

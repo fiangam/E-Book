@@ -20,7 +20,7 @@ class EbookController extends Controller
      */
     public function index(): Response
     {
-        $ebooks = Ebook::select(
+        $ebooks = Ebook::select( 
             "ebooks.id",
             "kategoris.name as kategori_name",
             "ebooks.judul",
@@ -70,17 +70,11 @@ class EbookController extends Controller
             } else {
                 return redirect()->back()->with('error', 'Failed to upload and create ebook.');
             }
-        }
-
-
-        public function __construct(Ebook $ebook)
-        {
-            $this->ebook = $ebook;
-        }
+        }   
 
         public function view($id)
         {
-            $ebook = $this->ebook->find($id);
+            $ebook = Ebook::findOrFail($id);
 
             // Tangani potensi kesalahan (misalnya, jika ebook tidak ditemukan)
 
