@@ -41,6 +41,7 @@
                             <th>Judul</th>
                             <th>Kategori</th>
                             <th>File E-Book</th>
+                            <th>File Foto</th>
                             <th>Tanggal Terbit</th>
                             <th>Actions</th>
                         </tr>
@@ -54,6 +55,7 @@
                             <td>
                                 <a class="nav-link link-dark" href="{{ route('pdf-view', $ebook->id) }}" title="Buka file PDF"><i class="fa fa-file-pdf-o"></i> {{ $ebook->file_ebook }}</a>
                             </td>
+                            <td>{{ $ebook->foto }}</td>
                             <td>{{ $ebook->tanggal_terbit }}</td>
                             <td>
                             <a href="#" class="btn btn-sm btn-inverse-danger" onclick="

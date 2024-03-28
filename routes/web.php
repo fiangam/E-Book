@@ -62,7 +62,12 @@ Route::middleware([
         Route::get('/dashboard_user', function () {
             // return 'dashboard user';
             return view('dashboard_user');
-        })->name('dashboard_user');    
+        })->name('dashboard_user');  
+
+        Route::get('/detail_1', function () {
+            return view('detail.detail_1');
+        })->name('detail_1');
+        
     });
     
 });

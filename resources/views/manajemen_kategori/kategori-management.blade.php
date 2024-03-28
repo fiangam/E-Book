@@ -47,8 +47,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $kategori->name }}</td>
                             <td>
-                            <a href="{{ route('kategoris.edit', ['id' => $kategori->id]) }}" class="btn btn-secondary btn-sm">edit</a>
-                            <a href="#" class="btn btn-sm btn-inverse-danger" onclick="
+                                  <a href="#" class="btn btn-sm btn-inverse-danger" onclick="
                                     event.preventDefault();
                                     if (confirm('Do you want to remove this?')) {
                                     document.getElementById('delete-row-{{ $kategori->id }}').submit();

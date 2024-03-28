@@ -25,7 +25,8 @@ class EbookController extends Controller
             "kategoris.name as kategori_name",
             "ebooks.judul",
             "ebooks.tanggal_terbit",
-            "ebooks.file_ebook"
+            "ebooks.file_ebook",
+            "ebooks.foto"
         )
             ->leftJoin("kategoris", "kategoris.id", "=", "ebooks.id_kategori")
             ->get();
@@ -41,36 +42,40 @@ class EbookController extends Controller
     }
 
     public function store(Request $request): RedirectResponse
-        {
-            $validator = Validator::make($request->all(), [
-                'file' => 'required|file|mimes:pdf,epub',
-                // Sesuaikan validasi buku di sini sesuai kebutuhan
-                'judul' => 'required|string|max:255',
-                'tanggal_terbit' => 'required|date',
-                'id_kategori' => 'required|exists:kategoris,id',
-            ]);
-        
-            if ($validator->fails()) {
-                return redirect()->back()->withErrors($validator)->withInput();
-            }
-        
-            $file = $request->file('file');
-            $tujuan_upload = 'uploads';
-            $file->move($tujuan_upload, $file->getClientOriginalName());
-        
-            $ebooks = [
-                'judul' => $request->input('judul'),
-                'tanggal_terbit' => $request->input('tanggal_terbit'),
-                'id_kategori' => $request->input('id_kategori'),
-                'file_ebook' => $file->getClientOriginalName(),
-            ];
-        
-            if (Ebook::create($ebooks)) {
-                return redirect(route('ebooks.index'))->with('success', 'Ebook uploaded and created successfully!');
-            } else {
-                return redirect()->back()->with('error', 'Failed to upload and create ebook.');
-            }
-        }   
+    {
+        $validator = Validator::make($request->all(), [
+            'file' => 'required|file|mimes:pdf',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif', // Add validation rule for foto
+            'judul' => 'required|string|max:255',
+            'tanggal_terbit' => 'required|date',
+            'id_kategori' => 'required|exists:kategoris,id',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $file = $request->file('file');
+        $tujuan_upload = 'uploads';
+        $file->move($tujuan_upload, $file->getClientOriginalName());
+
+        $foto = $request->file('foto');
+        $foto->move($tujuan_upload, $foto->getClientOriginalName());  // Move the uploaded foto to uploads directory
+
+        $ebooks = [
+            'judul' => $request->input('judul'),
+            'tanggal_terbit' => $request->input('tanggal_terbit'),
+            'id_kategori' => $request->input('id_kategori'),
+            'file_ebook' => $file->getClientOriginalName(),
+            'foto' => $foto->getClientOriginalName(), // Add foto to ebooks array
+        ];
+
+        if (Ebook::create($ebooks)) {
+            return redirect(route('ebooks.index'))->with('success', 'Ebook uploaded and created successfully!');
+        } else {
+            return redirect()->back()->with('error', 'Failed to upload and create ebook.');
+        }
+    }
 
         public function view($id)
         {

@@ -64,6 +64,12 @@
                     <div class="form-group col-md-5">
                         <label class="form-label">File E-Book</label>
                         <input type="file" class="form-control" id="file" name="file" value="{{ old('file_ebook') }}"  placeholder="File Ebook">
+                        <p class="text-danger" style="font-size: 12px;">*Hanya File PDF*</p>
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label class="form-label">Cover Buku</label>
+                        <input type="file" class="form-control" id="foto" name="foto" value="{{ old('foto') }}"  placeholder="File Foto">
+                        <p class="text-danger" style="font-size: 12px;">*Hanya File jpeg/png/jpg/gif</p>
                     </div>
                       <button type="submit" class="btn btn-inverse-success mr-2">Submit</button>
                       <a href="{{ route('ebooks.index') }}" class="btn btn-inverse-dark">Cancel</a>

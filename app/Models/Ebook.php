@@ -17,6 +17,7 @@ class Ebook extends Model
         'judul',
         'tanggal_terbit',
         'file_ebook',
+        'foto',
     ];
     public function kategoris(): BelongsTo
     {
